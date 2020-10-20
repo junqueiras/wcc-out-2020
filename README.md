@@ -101,8 +101,8 @@ Compreender como consumir informações de serviços externos através da intern
 
 Referências: 
 
-https://developer.android.com/courses/fundamentals-training/toc-v2
-https://developer.android.com/courses/kotlin-android-fundamentals/overview
-https://github.com/mobile-roadmap/android-developer-roadmap
-https://www.udemy.com/course/kotlin-android
+- https://developer.android.com/courses/fundamentals-training/toc-v2
+- https://developer.android.com/courses/kotlin-android-fundamentals/overview
+- https://github.com/mobile-roadmap/android-developer-roadmap
+- https://www.udemy.com/course/kotlin-android
 
