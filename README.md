@@ -51,7 +51,7 @@ Compreender ferramentas de apoio do desenvolvimento de aplicativos (IDE, emulado
 - Clean code
 - Paradigmas de programação
 
-### Criação de interfaces e interações
+#### Criação de interfaces e interações
 Compreender ferramentas para criação de interfaces aplicáveis em diferentes contextos. Utilizar de recursos para melhorar o reuso de código relacionado às interfaces. Criação de interfaces responsivas e resilientes.
 
 #### Construção de layouts complexos
@@ -66,7 +66,7 @@ Compreender ferramentas para criação de interfaces aplicáveis em diferentes c
 - Estruturação de temas
 - Testes de interface
 
-### Execução de tarefas em background
+#### Execução de tarefas em background
 Entender como o android gerencia a execução de tarefas e como podemos manipular recursos para executar atividades assíncronas em nossas apps.
 - Gerenciamento de threads no android
 - Coroutines
@@ -74,26 +74,26 @@ Entender como o android gerencia a execução de tarefas e como podemos manipula
 - Broadcasts receivers
 - Alarms
 
-### Armazenamento e gerenciamento de dados
+#### Armazenamento e gerenciamento de dados
 Compreender ferramentas para armazenamento de dados suas características e aplicação em diferentes contextos.
 - Shared preferences
 - Room
 - Novidades android 11 sobre gerenciamento de dados
 
-### Conexão com a internet
+#### Conexão com a internet
 Compreender como consumir informações de serviços externos através da internet, gerenciando recursos e dados.
 - Retrofit
 - Coroutines
 - Padrão repository
 
-### Arquitetura de apps android
+#### Arquitetura de apps android
 - Clean Architecture
 - Entendimento dos Architecture components, MVVM e suas aplicações
 - Outros modelos de arquitetura aplicáveis ao contexto android
 - Construção de apps complexas
 - Injeção de dependências e ferramentas
 
-### Caminho para produção
+#### Caminho para produção
 - Google play console
 - Publicação de aplicações
 - Ferramentas para habilitar entrega contínua e integração contínua nos projetos
