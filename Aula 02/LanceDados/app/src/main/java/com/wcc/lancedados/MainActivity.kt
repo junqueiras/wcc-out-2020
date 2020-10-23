@@ -10,9 +10,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val botaoLancarDados = findViewById<Button>(R.id.lanceDadosBotao)
 
-        findViewById<Button>(R.id.lanceDadosBotao).setOnClickListener {
-            findViewById<TextView>(R.id.dado1).text = "Texto trocado!"
+        botaoLancarDados.setOnClickListener {
+
+
         }
+
     }
+
+    fun lancarDado(): Int {
+        return (1..6).random()
+    }
+
 }
