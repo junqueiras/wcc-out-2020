@@ -7,22 +7,22 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/lanceDadosBotao"
+        android:id="@+id/botaoJogar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/etiqueta_botao_lancar_dados"
+        android:text="Jogar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintHorizontal_bias="0.535"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.672" />
+        app:layout_constraintVertical_bias="0.92" />
 
     <ImageView
         android:id="@+id/dado1"
-        android:layout_width="127dp"
-        android:layout_height="147dp"
-        app:layout_constraintBottom_toTopOf="@+id/lanceDadosBotao"
+        android:layout_width="139dp"
+        android:layout_height="137dp"
+        app:layout_constraintBottom_toTopOf="@+id/botaoJogar"
         app:layout_constraintEnd_toStartOf="@+id/dado2"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,13 +31,13 @@
 
     <ImageView
         android:id="@+id/dado2"
-        android:layout_width="127dp"
-        android:layout_height="147dp"
-        app:layout_constraintBottom_toTopOf="@+id/lanceDadosBotao"
+        android:layout_width="132dp"
+        android:layout_height="139dp"
+        app:layout_constraintBottom_toTopOf="@+id/botaoJogar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/dado1"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/dice_1" />
+        app:srcCompat="@drawable/dice_2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

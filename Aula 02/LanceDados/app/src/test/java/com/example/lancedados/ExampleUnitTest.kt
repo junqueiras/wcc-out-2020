@@ -1,4 +1,4 @@
-package com.wcc.lancedados
+package com.example.lancedados
 
 import org.junit.Test
 
