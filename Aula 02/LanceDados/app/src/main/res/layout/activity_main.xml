@@ -19,24 +19,24 @@
         app:layout_constraintVertical_bias="0.672" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/dado1"
         android:layout_width="127dp"
         android:layout_height="147dp"
         app:layout_constraintBottom_toTopOf="@+id/lanceDadosBotao"
-        app:layout_constraintEnd_toStartOf="@+id/imageView2"
+        app:layout_constraintEnd_toStartOf="@+id/dado2"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/dice_1" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/dado2"
         android:layout_width="127dp"
         android:layout_height="147dp"
         app:layout_constraintBottom_toTopOf="@+id/lanceDadosBotao"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/dado1"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/dice_1" />
 
