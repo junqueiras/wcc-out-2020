@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
     private val sharedPreferences: SharedPreferences
         get() {
-            return this.application.getSharedPreferences("themes", Context.MODE_PRIVATE)
+            return this.application.getSharedPreferences("colors", Context.MODE_PRIVATE)
         }
 
 
