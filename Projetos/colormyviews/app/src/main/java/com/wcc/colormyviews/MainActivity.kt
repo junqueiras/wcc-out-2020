@@ -1,5 +1,8 @@
 package com.wcc.colormyviews
 
+import android.content.Context
+import android.content.SharedPreferences
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -10,15 +13,55 @@ import kotlinx.android.synthetic.main.activity_main.*
 import org.w3c.dom.Text
 
 class MainActivity : AppCompatActivity() {
-    var currentColor = R.color.grey
+    private var currentColor = R.color.grey
+    private var boxOneColor = R.color.grey
+    private var boxTwoColor = R.color.grey
+    private var boxThreeColor = R.color.grey
+    private var boxFourColor = R.color.grey
+    private var boxFiveColor = R.color.grey
+
+    private val sharedPreferences: SharedPreferences
+        get() {
+            return this.application.getSharedPreferences("themes", Context.MODE_PRIVATE)
+        }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        loadSavedColors()
         setColorButtonsAction()
         setBoxesAction()
+    }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        with(sharedPreferences.edit()) {
+            putInt("boxOne", boxOneColor)
+            putInt("boxTwo", boxTwoColor)
+            putInt("boxThree", boxThreeColor)
+            putInt("boxFour", boxFourColor)
+            putInt("boxFive", boxFiveColor)
+            commit()
+        }
+    }
+
+    private fun loadSavedColors(){
+        boxOneColor = sharedPreferences.getInt("boxOne", boxOneColor)
+        setViewBackgroundColor(box_one_text, boxOneColor)
+
+        boxTwoColor = sharedPreferences.getInt("boxTwo", boxTwoColor)
+        setViewBackgroundColor(box_two_text, boxTwoColor)
+
+        boxThreeColor = sharedPreferences.getInt("boxThree", boxThreeColor)
+        setViewBackgroundColor(box_three_text, boxThreeColor)
+
+        boxFourColor = sharedPreferences.getInt("boxFour", boxFourColor)
+        setViewBackgroundColor(box_four_text, boxFourColor)
+
+        boxFiveColor = sharedPreferences.getInt("boxFive", boxFiveColor)
+        setViewBackgroundColor(box_five_text, boxFiveColor)
     }
 
     private fun setColorButtonsAction() {
@@ -37,26 +80,28 @@ class MainActivity : AppCompatActivity() {
 
     private fun setBoxesAction() {
         box_one_text.setOnClickListener {
-            colorBoxWithCurrentColor(it)
+            setViewBackgroundColor(it, currentColor)
+            boxOneColor = currentColor
         }
         box_two_text.setOnClickListener {
-            colorBoxWithCurrentColor(it)
+            setViewBackgroundColor(it, currentColor)
+            boxTwoColor = currentColor
         }
         box_three_text.setOnClickListener {
-            colorBoxWithCurrentColor(it)
+            setViewBackgroundColor(it, currentColor)
+            boxThreeColor = currentColor
         }
         box_four_text.setOnClickListener {
-            colorBoxWithCurrentColor(it)
+            setViewBackgroundColor(it, currentColor)
+            boxFourColor = currentColor
         }
         box_five_text.setOnClickListener {
-            colorBoxWithCurrentColor(it)
+            setViewBackgroundColor(it, currentColor)
+            boxFiveColor = currentColor
         }
     }
 
-    private fun colorBoxWithCurrentColor(box: View) {
-            box.setBackgroundResource(currentColor)
+    private fun setViewBackgroundColor(view: View, colorId: Int) {
+        view.setBackgroundResource(colorId)
     }
-
-
-
 }
