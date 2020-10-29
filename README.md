@@ -71,8 +71,6 @@ Entender como o android gerencia a execução de tarefas e como podemos manipula
 - Gerenciamento de threads no android
 - Coroutines
 - Async tasks
-- Broadcasts receivers
-- Alarms
 
 #### Armazenamento e gerenciamento de dados
 Compreender ferramentas para armazenamento de dados suas características e aplicação em diferentes contextos.
