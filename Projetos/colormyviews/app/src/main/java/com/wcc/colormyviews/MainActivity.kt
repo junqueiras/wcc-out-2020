@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
     private val sharedPreferences: SharedPreferences
         get() {
-            return this.application.getSharedPreferences("colors", Context.MODE_PRIVATE)
+            return this.getSharedPreferences("colors", Context.MODE_PRIVATE)
         }
 
 
@@ -37,14 +37,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        with(sharedPreferences.edit()) {
-            putInt("boxOne", boxOneColor)
-            putInt("boxTwo", boxTwoColor)
-            putInt("boxThree", boxThreeColor)
-            putInt("boxFour", boxFourColor)
-            putInt("boxFive", boxFiveColor)
-            commit()
-        }
+        val editor = sharedPreferences.edit()
+            editor.putInt("boxOne", boxOneColor)
+            editor.putInt("boxTwo", boxTwoColor)
+            editor.putInt("boxThree", boxThreeColor)
+            editor.putInt("boxFour", boxFourColor)
+            editor.putInt("boxFive", boxFiveColor)
+            editor.commit()
     }
 
     private fun loadSavedColors(){

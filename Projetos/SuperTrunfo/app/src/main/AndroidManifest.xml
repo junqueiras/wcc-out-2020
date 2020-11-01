@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".GameResultActivity"></activity>
         <activity android:name=".ChooseCriteriaActivity" />
-        <activity android:name=".CardsActivity" />
+        <activity android:name=".view.CardsActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
