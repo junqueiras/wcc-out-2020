@@ -8,7 +8,7 @@ import com.wcc.whatdoilearn.entities.LearnedItem
 @Dao
 interface LearnedItemDao {
     @Query("SELECT * FROM learned_item ORDER BY item_title ASC")
-    fun getAll(): List<LearnedItem>
+    suspend fun getAll(): List<LearnedItem>
 
     @Insert
     fun insert(item: LearnedItem)

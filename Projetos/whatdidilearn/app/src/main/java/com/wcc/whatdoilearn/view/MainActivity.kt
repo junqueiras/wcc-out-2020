@@ -2,10 +2,12 @@ package com.wcc.whatdoilearn.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.recyclerview.widget.RecyclerView
-import com.wcc.whatdoilearn.R
 import com.wcc.whatdoilearn.data.LearnedItemsDatabase
 import com.wcc.whatdoilearn.databinding.ActivityMainBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,10 +17,18 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val recyclerView = binding.itemsLearnedRecyclerView
-        val learnedItems = LearnedItemsDatabase.getAll()
-        val adapter = LearnedItemsAdapter()
+        val scope = CoroutineScope(Dispatchers.IO)
+        val database = LearnedItemsDatabase.getDatabase(this, scope)
+        val learnedItemDao = database.learnedItemDao()
 
+        val adapter = LearnedItemsAdapter()
         recyclerView.adapter = adapter
-        adapter.data = learnedItems
+
+        scope.launch {
+            val learnedItems = learnedItemDao.getAll()
+            adapter.data = learnedItems
+        }
+
+
     }
 }
