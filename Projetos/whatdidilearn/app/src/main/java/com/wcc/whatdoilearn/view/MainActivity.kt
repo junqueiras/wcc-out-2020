@@ -1,5 +1,6 @@
 package com.wcc.whatdoilearn.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.RecyclerView
@@ -20,5 +21,10 @@ class MainActivity : AppCompatActivity() {
 
         recyclerView.adapter = adapter
         adapter.data = learnedItems
+
+        binding.newItemButton.setOnClickListener {
+            val intent = Intent(this, NewItemActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
