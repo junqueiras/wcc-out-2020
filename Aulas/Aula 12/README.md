@@ -12,8 +12,8 @@ Objetivo: Entender mecanisnmo View Binding, compreender guia de arquitetura andr
 - [Room](https://www.youtube.com/watch?v=SKWh4ckvFPM)
 
 ### Palavras chave
-- Recycler view
-- Adapter pattern
-- View Holder
+- Archiqtecture components
+- SQL
+- SQL lite
 
 
