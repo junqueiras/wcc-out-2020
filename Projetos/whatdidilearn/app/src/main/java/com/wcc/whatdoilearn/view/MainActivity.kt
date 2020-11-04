@@ -2,6 +2,7 @@ package com.wcc.whatdoilearn.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.Observer
 import com.wcc.whatdoilearn.data.LearnedItemDao
 import com.wcc.whatdoilearn.data.LearnedItemsDatabase
 import com.wcc.whatdoilearn.databinding.ActivityMainBinding
@@ -20,21 +21,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val recyclerView = binding.itemsLearnedRecyclerView
-        val scopeDB = CoroutineScope(Dispatchers.IO)
-        val database = LearnedItemsDatabase.getDatabase(this, scopeDB)
+        val adapter = LearnedItemsAdapter()
+        recyclerView.adapter = adapter
+
+        val database = LearnedItemsDatabase.getDatabase(this, CoroutineScope(Dispatchers.IO))
         learnedItemsDao = database.learnedItemDao()
 
-        recyclerView.adapter = LearnedItemsAdapter()
-
-    }
-
-    override fun onResume() {
-        super.onResume()
-
-        val scopeMain = CoroutineScope(Dispatchers.Main)
-        scopeMain.launch {
-            val learnedItems = learnedItemsDao.getAll()
-            (binding.itemsLearnedRecyclerView.adapter as LearnedItemsAdapter).data = learnedItems
-        }
+        val learnedItems = learnedItemsDao.getAll()
+        learnedItems.observe(this, Observer {
+            adapter.data = it
+        })
     }
 }
