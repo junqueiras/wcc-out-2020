@@ -9,6 +9,7 @@ import com.wcc.whatdoilearn.data.LearnedItemsDatabase
 import com.wcc.whatdoilearn.databinding.ActivityMainBinding
 import com.wcc.whatdoilearn.databinding.ActivityNewItemBinding
 import com.wcc.whatdoilearn.entities.LearnedItem
+import com.wcc.whatdoilearn.repository.LearnedItemsRepository
 import com.wcc.whatdoilearn.viewmodel.NewLearnedItemViewModel
 import com.wcc.whatdoilearn.viewmodel.NewLearnedItemViewModelFactory
 import kotlinx.coroutines.CoroutineScope
@@ -24,7 +25,8 @@ class NewItemActivity : AppCompatActivity() {
         supportActionBar?.title = "New Learned Item"
 
         val dao = LearnedItemsDatabase.getDatabase(this, CoroutineScope(Dispatchers.IO)).learnedItemDao()
-        val viewModelFactory = NewLearnedItemViewModelFactory(dao)
+        val repository = LearnedItemsRepository(dao)
+        val viewModelFactory = NewLearnedItemViewModelFactory(repository)
         val viewModel = ViewModelProvider(this, viewModelFactory).get(NewLearnedItemViewModel::class.java)
 
         binding.saveButton.setOnClickListener {

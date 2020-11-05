@@ -7,6 +7,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.wcc.whatdoilearn.data.LearnedItemsDatabase
 import com.wcc.whatdoilearn.databinding.ActivityMainBinding
+import com.wcc.whatdoilearn.repository.LearnedItemsRepository
 import com.wcc.whatdoilearn.viewmodel.LearnedItemViewModel
 import com.wcc.whatdoilearn.viewmodel.LearnedItemViewModelFactory
 import kotlinx.coroutines.CoroutineScope
@@ -28,8 +29,9 @@ class MainActivity : AppCompatActivity() {
 
         val database = LearnedItemsDatabase.getDatabase(this, CoroutineScope(Dispatchers.IO))
         val learnedItemsDao = database.learnedItemDao()
+        val repository = LearnedItemsRepository(learnedItemsDao)
 
-        val viewModelFactory = LearnedItemViewModelFactory(learnedItemsDao)
+        val viewModelFactory = LearnedItemViewModelFactory(repository)
         val viewModel = ViewModelProvider(this, viewModelFactory).get(LearnedItemViewModel::class.java)
 
         val learnedItems = viewModel.learnedItems

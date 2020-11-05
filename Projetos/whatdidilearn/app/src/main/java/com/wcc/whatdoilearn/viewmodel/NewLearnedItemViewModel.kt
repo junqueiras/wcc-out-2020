@@ -5,14 +5,15 @@ import androidx.lifecycle.viewModelScope
 import com.wcc.whatdoilearn.data.LearnedItemDao
 import com.wcc.whatdoilearn.entities.LearnedItem
 import com.wcc.whatdoilearn.entities.UnderstandingLevel
+import com.wcc.whatdoilearn.repository.LearnedItemsRepository
 import kotlinx.coroutines.launch
 
-class NewLearnedItemViewModel(private var dao: LearnedItemDao): ViewModel() {
+class NewLearnedItemViewModel(private var repository: LearnedItemsRepository): ViewModel() {
 
     fun insertNewLearnedItem(itemTitle: String, itemDescription: String) {
         viewModelScope.launch {
             val item = LearnedItem(itemTitle, itemDescription, UnderstandingLevel.HIGH)
-            dao.insert(item)
+            repository.insertNewLearnedItem(item)
         }
     }
 }
