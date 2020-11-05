@@ -12,5 +12,5 @@ interface LearnedItemDao {
     fun getAll(): LiveData<List<LearnedItem>>
 
     @Insert
-    fun insert(item: LearnedItem)
+    suspend fun insert(item: LearnedItem)
 }

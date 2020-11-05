@@ -12,3 +12,12 @@ class LearnedItemViewModelFactory(private val dao: LearnedItemDao) : ViewModelPr
         throw IllegalArgumentException("Unknown ViewModel class")
     }
 }
+
+class NewLearnedItemViewModelFactory(private val dao: LearnedItemDao) : ViewModelProvider.Factory  {
+    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(NewLearnedItemViewModel::class.java)) {
+            return NewLearnedItemViewModel(dao) as T
+        }
+        throw IllegalArgumentException("Unknown ViewModel class")
+    }
+}
