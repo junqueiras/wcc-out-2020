@@ -4,8 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.wcc.whatdoilearn.data.LearnedItemsDatabase
 import com.wcc.whatdoilearn.databinding.ActivityMainBinding
+import com.wcc.whatdoilearn.viewmodel.LearnedItemViewModel
+import com.wcc.whatdoilearn.viewmodel.LearnedItemViewModelFactory
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 
@@ -22,10 +25,14 @@ class MainActivity : AppCompatActivity() {
         val adapter = LearnedItemsAdapter()
         recyclerView.adapter = adapter
 
+
         val database = LearnedItemsDatabase.getDatabase(this, CoroutineScope(Dispatchers.IO))
         val learnedItemsDao = database.learnedItemDao()
 
-        val learnedItems = learnedItemsDao.getAll()
+        val viewModelFactory = LearnedItemViewModelFactory(learnedItemsDao)
+        val viewModel = ViewModelProvider(this, viewModelFactory).get(LearnedItemViewModel::class.java)
+
+        val learnedItems = viewModel.learnedItems
         learnedItems.observe(this, Observer {
             adapter.data = it
         })
