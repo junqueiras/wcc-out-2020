@@ -62,7 +62,6 @@ Compreender ferramentas para criação de interfaces aplicáveis em diferentes c
 - Estruturação de navegação entre telas
 - Navigation components
 - Intents
-- Construção de layouts customizados
 - Estruturação de temas
 - Testes de interface
 
@@ -70,13 +69,11 @@ Compreender ferramentas para criação de interfaces aplicáveis em diferentes c
 Entender como o android gerencia a execução de tarefas e como podemos manipular recursos para executar atividades assíncronas em nossas apps.
 - Gerenciamento de threads no android
 - Coroutines
-- Async tasks
 
 #### Armazenamento e gerenciamento de dados
 Compreender ferramentas para armazenamento de dados suas características e aplicação em diferentes contextos.
 - Shared preferences
 - Room
-- Novidades android 11 sobre gerenciamento de dados
 
 #### Conexão com a internet
 Compreender como consumir informações de serviços externos através da internet, gerenciando recursos e dados.
