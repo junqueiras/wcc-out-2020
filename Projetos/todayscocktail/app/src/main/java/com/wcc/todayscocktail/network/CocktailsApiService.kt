@@ -1,5 +1,6 @@
 package com.wcc.todayscocktail.network
 
+import androidx.lifecycle.LiveData
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Call
@@ -21,7 +22,7 @@ private val retrofit = Retrofit.Builder()
 
 interface CocktailsApiService {
     @GET( "filter.php?a=Alcoholic")
-    suspend fun getCocktails(): Call<List<Cocktail>>
+    suspend fun getCocktails(): CocktailsResponse
 }
 
 object CocktailsApi {
