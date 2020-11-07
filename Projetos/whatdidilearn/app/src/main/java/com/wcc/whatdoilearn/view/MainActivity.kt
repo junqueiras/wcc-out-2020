@@ -26,7 +26,6 @@ class MainActivity : AppCompatActivity() {
         val adapter = LearnedItemsAdapter()
         recyclerView.adapter = adapter
 
-
         val database = LearnedItemsDatabase.getDatabase(this, CoroutineScope(Dispatchers.IO))
         val learnedItemsDao = database.learnedItemDao()
         val repository = LearnedItemsRepository(learnedItemsDao)
