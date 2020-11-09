@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.wcc.todayscocktail.R
-import com.wcc.todayscocktail.network.Cocktail
+import com.wcc.todayscocktail.entity.Cocktail
 
 class CocktailsListAdapter: RecyclerView.Adapter<CocktailsListAdapter.CocktailsListViewHolder>() {
     var data = listOf<Cocktail>()
