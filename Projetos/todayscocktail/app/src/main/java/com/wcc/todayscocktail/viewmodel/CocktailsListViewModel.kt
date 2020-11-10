@@ -8,6 +8,6 @@ import com.wcc.todayscocktail.repository.CocktailsListRepository
 class CocktailsListViewModel(private val repository: CocktailsListRepository): ViewModel() {
 
     val  cocktailList: LiveData<List<Cocktail>>
-        get() = repository.cocktailList
+        get() = repository.cocktailsList
 
 }

@@ -11,10 +11,11 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.lang.Exception
 
-class CocktailsListRepository(private val cocktailDao: CocktailDAO, private val cocktailApi: CocktailsApiService) {
+class CocktailsListRepository(private val cocktailDao: CocktailDAO,
+                              private val cocktailApi: CocktailsApiService) {
     private val cocktailListResponse = MutableLiveData<List<Cocktail>>()
 
-    val  cocktailList: LiveData<List<Cocktail>>
+    val cocktailsList: LiveData<List<Cocktail>>
         get() = cocktailListResponse
 
     init {
@@ -27,12 +28,12 @@ class CocktailsListRepository(private val cocktailDao: CocktailDAO, private val 
             if(listFromDB.isNotEmpty()) {
                 cocktailListResponse.postValue(listFromDB)
             } else {
-                getCocktailFromRemote()
+                getCocktailsFromRemote()
             }
         }
     }
 
-    private fun getCocktailFromRemote() {
+    private fun getCocktailsFromRemote() {
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 val listResult = cocktailApi.getCocktails().cocktailsList

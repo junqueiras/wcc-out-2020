@@ -24,8 +24,9 @@ class MainActivity : AppCompatActivity() {
 
         val databaseDao = CocktailDatabase.getDatabase(this, CoroutineScope(Dispatchers.IO)).cocktailDao()
         val remoteService = CocktailsApi.retrofitService
+        val repository = CocktailsListRepository(databaseDao, remoteService)
 
-        val viewModelFactory = CocktailsListViewModelFactory(CocktailsListRepository(databaseDao, remoteService))
+        val viewModelFactory = CocktailsListViewModelFactory(repository)
 
         val viewModel = ViewModelProvider(this, viewModelFactory).get(CocktailsListViewModel::class.java)
         val list = viewModel.cocktailList
