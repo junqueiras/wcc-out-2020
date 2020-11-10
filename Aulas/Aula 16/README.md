@@ -25,6 +25,10 @@ Objetivo: Construção de software em times, publicação de um app na loja e t�
 - Espresso
 - Ui Automator
 - R8/Proguard
+- Injeção de dependencias
+- Dagger
+- Hilt
+- Koin
 
 
 
